@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
             {
                 String songname = songList.getItemAtPosition(position).toString();
                 Intent intent = new Intent(MainActivity.this,SmartPlayerActivity.class);
-                intent.putExtra("song",audioSongs);// pass el song nafsha
+                intent.putExtra("song",audioSongs);// pass the song
                 intent.putExtra("songname",songname);
                 intent.putExtra("position",position);
                 startActivity(intent);

@@ -44,7 +44,6 @@ public class SmartPlayerActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_player);
-        // implement voice command that is a user will speak and you get that command
         init();
         checkVoiceCommandPermission();
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(SmartPlayerActivity.this);
@@ -87,7 +86,7 @@ public class SmartPlayerActivity extends AppCompatActivity
             @Override
             public void onResults(Bundle results)
             {
-                //she has this parameter bundle from this bundle class ,get the voice from the user and convert it into text iy is return a lot of results but wa want the first result
+                //has this parameter bundle from this bundle class ,get the voice from the user and convert it into text is return a lot of results but we want the first result
                 ArrayList<String> matchesfound = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 if(matchesfound != null)
                 {
@@ -135,7 +134,7 @@ public class SmartPlayerActivity extends AppCompatActivity
             @Override
             public boolean onTouch(View v, MotionEvent event)
             {
-                // action down press on the screen , action up raised your finger from the screen
+                // action down press on the screen
                 switch (event.getAction())
                 {
                     case MotionEvent.ACTION_DOWN:
@@ -163,7 +162,6 @@ public class SmartPlayerActivity extends AppCompatActivity
                 {
                     mode = "ON";
                     voicecontrolButton.setText("Voice Enbled Mode- ON");
-                    //relativeLayout.setVisibility(View.GONE);
                 }
             }
         });
@@ -211,7 +209,7 @@ public class SmartPlayerActivity extends AppCompatActivity
 
     private void vaildateReceiveValueaeAndStartPlaying()
     {
-        // recive the data from main activity
+        // receive the data from main activity
         if(mediaPlayer != null)
         {
             mediaPlayer.stop();
@@ -232,7 +230,7 @@ public class SmartPlayerActivity extends AppCompatActivity
 
     private void checkVoiceCommandPermission()
     {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) //M=33 marshmallow version
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) //M=33, marshmallow android version
         {
             if (!(ContextCompat.checkSelfPermission(SmartPlayerActivity.this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED))// if the permission is granted what we gonna do
             {
